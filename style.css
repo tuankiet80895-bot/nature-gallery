@@ -1,0 +1,100 @@
+/* ===== Mobile view (mobile-first, khong dung media query) ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #dedede;
+    padding: 5px;
+    margin: 15px;
+    font-size: 25px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    font-size: 1.95em;
+}
+
+h2 {
+    text-align: center;
+}
+
+li {
+    margin-top: 20px;
+}
+
+/* 1 cot, khoang cach 10px giua hang va cot */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+figure {
+    margin: 0;
+    padding: 1em;
+    background-color: #ffffff;
+    color: #000000;
+    border: 5px solid blue;
+    border-radius: 35px;
+    text-align: center;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+figcaption,
+.label {
+    margin-top: 0.5em;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+/* ===== Tablet view: 772px ===== */
+@media screen and (min-width: 772px) {
+    .grid {
+        grid-template-columns: 1fr 1fr;   /* 2 cot */
+    }
+
+    figure {
+        border-radius: 50%;               /* hinh tron */
+    }
+
+    figure:last-child {
+        grid-column: 1 / -1;              /* figure cuoi chiem ca 2 cot */
+    }
+}
+
+/* ===== Large screen view: 992px ===== */
+@media screen and (min-width: 992px) {
+    figure {
+        border-radius: 0;                 /* bo bo tron */
+    }
+
+    figure:nth-child(3n) {
+        grid-column: 1 / -1;              /* moi figure thu 3 chiem ca 2 cot */
+    }
+}
+
+/* ===== Prefers-reduced-motion ===== */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;            /* bo hieu ung cuon muot */
+    }
+}
+
+/* ===== Dark color scheme ===== */
+@media (prefers-color-scheme: dark) {
+    figure {
+        background-color: #1a1a1a;        /* nen toi */
+        color: #ffe680;                   /* chu vang nhat */
+        border-color: #000000;            /* vien den */
+    }
+}
